@@ -31,31 +31,31 @@ Task NovelStory(CoroutineManager &coroutineManager, ScenarioInterpreter &interpr
             continue;
         }
 
-        co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d01.csv"));
-        if (interpreter.isRetuningToTitle)
-        {
-            continue;
-        }
-        co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d02.csv"));
-        if (interpreter.isRetuningToTitle)
-        {
-            continue;
-        }
-        co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d03.csv"));
-        if (interpreter.isRetuningToTitle)
-        {
-            continue;
-        }
-        co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d04.csv"));
-        if (interpreter.isRetuningToTitle)
-        {
-            continue;
-        }
-        co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d05.csv"));
-        if (interpreter.isRetuningToTitle)
-        {
-            continue;
-        }
+        // co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d01.csv"));
+        // if (interpreter.isRetuningToTitle)
+        // {
+        //     continue;
+        // }
+        // co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d02.csv"));
+        // if (interpreter.isRetuningToTitle)
+        // {
+        //     continue;
+        // }
+        // co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d03.csv"));
+        // if (interpreter.isRetuningToTitle)
+        // {
+        //     continue;
+        // }
+        // co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d04.csv"));
+        // if (interpreter.isRetuningToTitle)
+        // {
+        //     continue;
+        // }
+        // co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d05.csv"));
+        // if (interpreter.isRetuningToTitle)
+        // {
+        //     continue;
+        // }
         co_await coroutineManager.Start(interpreter.InterpretScenario("ScenarioScript/d06.csv"));
         if (interpreter.isRetuningToTitle)
         {
@@ -115,8 +115,9 @@ int main()
 
         BeginTextureMode(gameScreen);
         ClearBackground(BLACK);
-        backgroundManager.Graphic(font);
+        backgroundManager.Graphic();
         characterManager.Graphic();
+        backgroundManager.GraphicFont(font);
         itemWindow.Graphic();
         cutinManage.Graphic();
         messageWindow.Graphic(font);

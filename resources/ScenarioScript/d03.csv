@@ -47,11 +47,13 @@ MESSAGE,香久夜,「ある曲が話題になってるみたいなの」
 MESSAGE,あなた,「曲？」
 MESSAGE,香久夜,「うん。でも、よく知らなくて」
 MESSAGE,香久夜,「みんなもフレーズしか知らないみたい」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,香久夜,「それで、もしよければ君に」
 MESSAGE,香久夜,「詳しく聞いてみようかなって」
 MESSAGE,あなた,「僕に？」
 MESSAGE,香久夜,「ほら、よく休み時間に」
 MESSAGE,香久夜,「音楽を聴いていたじゃない？」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「流行の曲とか、詳しいのかなって」
 MESSAGE,あなた,僕が何気なく聴いていた音楽を、
 MESSAGE,あなた,彼女は覚えていてくれたらしい。
@@ -78,13 +80,16 @@ MESSAGE,香久夜,「そっか。無理に答えなくてもいいよ」
 MESSAGE,あなた,彼女は笑ってくれたけれど、
 MESSAGE,あなた,少しだけ気まずい空気が残った。
 INCREMENT_NUM_FLAG,信頼度,-5
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,「ごめん。その曲は知らないんだ」
 MESSAGE,あなた,「音楽は聴くけど、流行には疎くて」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,香久夜,「あっ、そうなんだ」
 MESSAGE,あなた,「期待させちゃったかな」
 MESSAGE,香久夜,「ううん。正直に言ってくれてありがとう」
 MESSAGE,あなた,「力になれなくてごめんね」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「そんなことないよ」
 MESSAGE,香久夜,「君が普段聴いてる曲も気になるし」
 MESSAGE,香久夜,「今度、そっちも教えてね」
@@ -101,7 +106,7 @@ MESSAGE,あなた,彼女の知らない一面を知れた気がした。
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
-BACKGROUND_SHOW,BG/古本屋.jpg,3日目：書店でのお買い物
+BACKGROUND_SHOW,BG/教室の前の方（夕方）.jpg,3日目：書店でのお買い物
 MESSAGE_OPEN
 MESSAGE,あなた,放課後。
 MESSAGE,あなた,いつも通り帰宅の準備をしていると、
@@ -121,12 +126,14 @@ CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remakeいたずら笑み.png,0.68
 MESSAGE,香久夜,「ふふ。そういうこと」
 MESSAGE,あなた,少し強引な誘いに苦笑しながら、
 MESSAGE,あなた,僕たちは近くの書店へ向かった。
+BACKGROUND_CHANGE,BG/古本屋.jpg,3日目：書店でのお買い物
 MESSAGE,あなた,書店に着くと、香久夜ちゃんは
 MESSAGE,あなた,迷うことなく本棚の方へ歩いていった。
 MESSAGE,香久夜,「これよ！　やっと見つけた」
 MESSAGE,あなた,彼女が手に取ったのは、
 MESSAGE,あなた,夏目漱石の文庫本だった。
 MESSAGE,香久夜,「文庫化されたって聞いてたけど」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「なかなか買いに行けなかったんだぁ」
 MESSAGE,あなた,「夏目漱石かあ。渋いね」
 MESSAGE,香久夜,「そうかな？」

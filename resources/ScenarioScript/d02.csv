@@ -8,15 +8,18 @@ CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,あなた,しばらくして、香久夜ちゃんが
 MESSAGE,あなた,教室へと入ってきた。
 MESSAGE,あなた,クラスメイトたちに囲まれて、
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,あなた,楽しそうに談笑している。
 MESSAGE,あなた,昨日のあの表情が嘘のようだ。
 MESSAGE,あなた,やっぱり、何かの思い違いだったのか。
 MESSAGE,あなた,そう思いかけた、その時だった。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,香久夜,「おはよう。昨日はよく眠れた？」
 MESSAGE,あなた,「えっ。あ、うん。まあ……」
 MESSAGE,香久夜,「ふふ。そっか」
 MESSAGE,あなた,彼女は何でもないように笑って、
 MESSAGE,あなた,僕の席の隣までやってきた。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「じゃあ、これから一週間見てるから」
 MESSAGE,香久夜,「……一緒にね」
 MESSAGE,あなた,「え？」
@@ -47,6 +50,7 @@ MESSAGE,あなた,クラスメイトも手伝いに来ていた。
 CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,あなた,三人で資料を仕分けていると、
 MESSAGE,あなた,突然、香久夜ちゃんが声を上げた。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake大きく不安げ.png,0.68
 MESSAGE,香久夜,「あっ！」
 MESSAGE,あなた,彼女の視線の先には、
 MESSAGE,あなた,昨日の70年前の卒業アルバム。
@@ -63,6 +67,7 @@ MESSAGE,あなた,僕は何も言わなかった。
 MESSAGE,あなた,アルバムを手に取った生徒は、
 MESSAGE,あなた,表紙をめくろうとしている。
 MESSAGE,香久夜,「……」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
 MESSAGE,あなた,隣から、彼女の視線を感じた。
 MESSAGE,あなた,結局、生徒は別の資料を探し始め、
 MESSAGE,あなた,アルバムを元の場所に戻した。
@@ -70,6 +75,7 @@ MESSAGE,香久夜,「……そう」
 MESSAGE,あなた,彼女はそれ以上何も言わなかった。
 MESSAGE,あなた,けれど、その表情は少し曇っていた。
 INCREMENT_NUM_FLAG,信頼度,-10
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,僕はすぐに声をかけた。
 MESSAGE,あなた,「あっ、そういえばさ！」
@@ -83,9 +89,11 @@ MESSAGE,あなた,僕はその生徒と一緒に、
 MESSAGE,あなた,別の資料を探し始めた。
 MESSAGE,あなた,その間に香久夜ちゃんが、
 MESSAGE,あなた,アルバムをそっと別の場所へ移した。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「……ありがとう」
 MESSAGE,あなた,彼女は小さくそう呟いた。
 INCREMENT_NUM_FLAG,信頼度,+10
+$IF_END
 $IF,SELECTED_OPTION,2
 MESSAGE,あなた,僕はアルバムを手に取った生徒に、
 MESSAGE,あなた,さりげなく声をかけた。
@@ -94,6 +102,7 @@ MESSAGE,あなた,「後でまとめて確認するらしいよ」
 MESSAGE,クラスの女子,「そうなの？　わかった」
 MESSAGE,あなた,生徒はアルバムを棚に戻した。
 MESSAGE,あなた,どうやら、ひとまずは大丈夫そうだ。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「……ありがとう」
 MESSAGE,香久夜,「でも、少し危なかったね」
 MESSAGE,あなた,彼女はほっとしたように笑った。
@@ -101,6 +110,7 @@ INCREMENT_NUM_FLAG,信頼度,+5
 $IF_END
 MESSAGE,あなた,一件が落ち着いた後、
 MESSAGE,あなた,香久夜ちゃんは僕の手を引いた。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「ねえ。お昼、一緒に食べない？」
 MESSAGE,あなた,「うん。もちろん」
 MESSAGE,あなた,彼女に連れられて、
@@ -144,6 +154,7 @@ MESSAGE,香久夜,「あれ？　どうしたの？」
 MESSAGE,あなた,「いや、なんでもない」
 MESSAGE,香久夜,「ふふ。楽しみにしてるね」
 INCREMENT_NUM_FLAG,好感度,+5
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,「昼休みは、次の授業の予習をしたり」
 MESSAGE,あなた,「課題を進めたりしてるかな」
@@ -166,7 +177,7 @@ MESSAGE,あなた,少しだけ和らいだ気がした。
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
-BACKGROUND_SHOW,BG/街中の交差点（夕方）.jpg,2日目：帰り道と新作プリン
+BACKGROUND_SHOW,BG/教室の前の方（夕方）.jpg,2日目：帰り道と新作プリン
 MESSAGE_OPEN
 CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,あなた,放課後。
@@ -177,6 +188,7 @@ MESSAGE,あなた,「うん。いいけど」
 MESSAGE,香久夜,「ちょっとコンビニにも寄りたくて」
 MESSAGE,香久夜,「一緒に来てくれる？」
 MESSAGE,あなた,「もちろん」
+BACKGROUND_CHANGE,BG/街中の交差点（夕方）.jpg,2日目：帰り道と新作プリン
 MESSAGE,あなた,憧れの女の子と一緒に帰る。
 MESSAGE,あなた,そんな機会が来るなんて、
 MESSAGE,あなた,昨日まで想像もしていなかった。
@@ -198,6 +210,7 @@ MESSAGE,あなた,香久夜ちゃんが突然足を止めた。
 MESSAGE,香久夜,「あっ、ここ！」
 MESSAGE,あなた,彼女が指差した先には、
 MESSAGE,あなた,見慣れたコンビニがあった。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「ここのコンビニ、新作スイーツが」
 MESSAGE,香久夜,「出てたんだぁ。気になってて」
 MESSAGE,あなた,「そんなに楽しみだったんだ」
@@ -205,7 +218,7 @@ MESSAGE,香久夜,「もちろん！　早く行こ？」
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
-BACKGROUND_SHOW,BG/コンビニの店内.jpg,2日目：コンビニ前
+BACKGROUND_SHOW,BG/コンビニの店内.jpg,2日目：コンビニ
 MESSAGE_OPEN
 MESSAGE,あなた,店内に入った香久夜ちゃんは、
 MESSAGE,あなた,迷わずスイーツの棚へ向かった。
@@ -219,7 +232,7 @@ MESSAGE,あなた,結局、僕たちは同じプリンを買って、
 MESSAGE,あなた,コンビニの外へと出た。
 
 #TODO【アイテム小窓】104,コンビニの新作プリン
-BACKGROUND_CHANGE,BG/コンビニ（夕方）.jpg
+BACKGROUND_CHANGE,BG/コンビニ（夕方）.jpg,2日目：コンビニ前
 CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,あなた,店の前のベンチに並んで座り、
 MESSAGE,あなた,二人でプリンを頬張る。
@@ -258,6 +271,7 @@ MESSAGE,あなた,彼女は少し寂しそうに笑った。
 MESSAGE,あなた,僕は、まだ彼女の秘密を
 MESSAGE,あなた,気にしてしまっているのだろう。
 INCREMENT_NUM_FLAG,信頼度,-5
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,「秘密がどうであっても」
 MESSAGE,あなた,「香久夜ちゃんは香久夜ちゃんだよ」
@@ -272,9 +286,11 @@ MESSAGE,香久夜,「君といると、少し安心するね」
 MESSAGE,あなた,彼女はプリンをひと口食べて、
 MESSAGE,あなた,いつものように笑った。
 INCREMENT_NUM_FLAG,好感度,+10
+$IF_END
 $IF,SELECTED_OPTION,2
 MESSAGE,あなた,「それより、このプリンおいしいね」
 MESSAGE,あなた,「新作っていうだけあるなあ」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「ふふ。そうでしょ？」
 MESSAGE,あなた,「他にも気になるのがあった？」
 MESSAGE,香久夜,「うん。次はあっちも食べてみたいな」
@@ -286,6 +302,7 @@ MESSAGE,あなた,少なくとも今は、
 MESSAGE,あなた,秘密の話をしなくてもよさそうだ。
 INCREMENT_NUM_FLAG,信頼度,+5
 $IF_END
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,あなた,プリンを食べ終える頃には、
 MESSAGE,あなた,辺りもすっかり夕暮れになっていた。
 MESSAGE,あなた,僕たちは手を繋いだまま、

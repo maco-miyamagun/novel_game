@@ -125,7 +125,7 @@ MESSAGE,あなた,僕は彼女の秘密を知ったまま、彼女と一緒に�
 MESSAGE,あなた,今、僕が彼女に伝えられることは何だろう。
 
 $IF,NUMERIC_FLAG_MIN,好感度,20
-$IF,NUMERIC_FLAG_MIN,信頼度,10
+$IF,NUMERIC_FLAG_MIN,信頼度,20
 CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake照れ.png,0.68
 MESSAGE,あなた,「……でも、僕は忘れたくないよ」
 MESSAGE,香久夜,「……どうして？」
@@ -218,7 +218,7 @@ MESSAGE_OPEN
 CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,あなた,僕たちは並んで、夜空を見上げた。
 MESSAGE,あなた,そこには、雲の切れ間から月が顔を覗かせていた。
-MESSAGE,あなた,中秋の名月も近い。
+MESSAGE,あなた,満月も近い。
 MESSAGE,あなた,一週間前、僕は資料室で彼女の秘密を知った。
 MESSAGE,あなた,あの日から、僕の日常は少しずつ変わっていった。
 MESSAGE,あなた,けれど、今こうして隣にいる彼女は、あの日と同じ香久夜ちゃんだった。
@@ -251,8 +251,9 @@ MESSAGE,,END_A：月が綺麗ですね
 RETURN_TITLE,
 $IF_END
 $IF_END
+$IF_END
 
-$IF,NUMERIC_FLAG_MIN,信頼度,10
+$IF,NUMERIC_FLAG_MIN,信頼度,20
 $IF,NUMERIC_FLAG_MAX,好感度,20
 CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake.png,0.68
 MESSAGE,あなた,「忘れるかどうかなんて、今はわからないよ」

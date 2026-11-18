@@ -20,6 +20,7 @@ MESSAGE,クラスの女子,「前に来たことがあったのかなって」
 MESSAGE,クラスの女子,「でも県外から来たって言ってたよね？」
 MESSAGE,あなた,香久夜ちゃんの表情が、
 MESSAGE,あなた,ほんの少しだけ強張った。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
 MESSAGE,香久夜,「ええと、それは……」
 MESSAGE,クラスの女子,「あれ？　どうしたの？」
 MESSAGE,あなた,彼女は話題を逸らそうとしている。
@@ -43,6 +44,7 @@ MESSAGE,香久夜,「……」
 MESSAGE,あなた,こちらを見た彼女の表情は、
 MESSAGE,あなた,少しだけ寂しそうだった。
 INCREMENT_NUM_FLAG,信頼度,-10
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,僕は二人の会話に割り込んだ。
 MESSAGE,あなた,「あっ、そういえばさ」
@@ -55,11 +57,13 @@ MESSAGE,クラスの女子,「何かあったっけ？」
 MESSAGE,あなた,結局、会話は元の話題に戻った。
 MESSAGE,あなた,香久夜ちゃんは何とか笑っていたが、
 MESSAGE,あなた,少し困った様子だった。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「……ありがとう」
 MESSAGE,香久夜,「でも、ちょっとびっくりしちゃった」
 MESSAGE,あなた,彼女はそう言って、
 MESSAGE,あなた,小さく笑った。
 INCREMENT_NUM_FLAG,信頼度,+5
+$IF_END
 $IF,SELECTED_OPTION,2
 MESSAGE,あなた,僕は少し離れたところから、
 MESSAGE,あなた,香久夜ちゃんに声をかけた。
@@ -102,6 +106,7 @@ MESSAGE,あなた,並んで座り、お弁当を広げる。
 MESSAGE,あなた,しばらくは何も話さずに食べていたが、
 MESSAGE,あなた,やがて香久夜ちゃんが口を開いた。
 MESSAGE,香久夜,「ねえ。もしも、私が」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake大きく不安げ.png,0.68
 MESSAGE,香久夜,「普通の人間じゃないって」
 MESSAGE,香久夜,「みんなに知られたら、どうする？」
 MESSAGE,あなた,「それは……」
@@ -117,6 +122,7 @@ MESSAGE_OPEN
 $IF,SELECTED_OPTION,0
 MESSAGE,あなた,「もしそうなったら、僕が何とかするよ」
 MESSAGE,あなた,「うまく誤魔化して、秘密を守るから」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「……ありがとう」
 MESSAGE,あなた,「僕にできることなら、協力するよ」
 MESSAGE,香久夜,「うん。頼りにしてるね」
@@ -124,6 +130,7 @@ MESSAGE,あなた,彼女は少し安心したように笑った。
 MESSAGE,あなた,僕は彼女の秘密を守る。
 MESSAGE,あなた,その気持ちは、変わらなかった。
 INCREMENT_NUM_FLAG,信頼度,+5
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,「僕は、いつも通りに接するよ」
 MESSAGE,香久夜,「……いつも通り？」
@@ -139,6 +146,7 @@ MESSAGE,香久夜,「ありがとう。嬉しいな」
 MESSAGE,あなた,彼女は少しだけ目を伏せた後、
 MESSAGE,あなた,いつもの柔らかな笑顔を見せた。
 INCREMENT_NUM_FLAG,信頼度,+25
+$IF_END
 $IF,SELECTED_OPTION,2
 MESSAGE,あなた,「そもそも、僕は香久夜ちゃんを」
 MESSAGE,あなた,「普通じゃないなんて思ってないよ」
@@ -162,7 +170,7 @@ MESSAGE,あなた,少しだけ和らいでいた。
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
-BACKGROUND_SHOW,BG/川沿いの土手の遊歩道（夕方）.jpg,4日目：河川敷
+BACKGROUND_SHOW,BG/教室の前の方（夕方）.jpg,4日目：放課後
 MESSAGE_OPEN
 MESSAGE,あなた,放課後。
 MESSAGE,あなた,荷物をまとめて教室を出ようとした時、
@@ -175,13 +183,16 @@ MESSAGE,あなた,「少しは気が紛れるかなって」
 MESSAGE,香久夜,「……うん。行きたいな」
 MESSAGE,あなた,彼女は小さく頷いた。
 MESSAGE,あなた,僕たちは学校を出て、
+BACKGROUND_CHANGE,BG/川沿いの土手の遊歩道（夕方）.jpg,4日目：河川敷
 MESSAGE,あなた,二人で河川敷へと向かった。
+CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
 MESSAGE,あなた,歩いている間、
 MESSAGE,あなた,香久夜ちゃんの手はいつもより震えていた。
 MESSAGE,あなた,僕はそっと、その手を握る。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake照れ.png,0.68
 MESSAGE,香久夜,「……？」
 MESSAGE,あなた,「寒いから、かな」
-CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「ふふ。そうかもね」
 MESSAGE,あなた,河川敷の芝生を抜けると、
 MESSAGE,あなた,舗装された道の先に浅瀬が見えた。
@@ -205,6 +216,7 @@ MESSAGE,香久夜,「男の子に混じって野球をしたり」
 MESSAGE,香久夜,「当時の打法を真似してね」
 MESSAGE,香久夜,「……今やったら怒られそうだけど」
 MESSAGE,あなた,「ふふ。意外とおてんばだったんだね」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「あら。今もそうかもしれないよ？」
 MESSAGE,あなた,「そうなの？」
 MESSAGE,香久夜,「さあ、どうでしょう」
@@ -217,7 +229,7 @@ MESSAGE,あなた,僕の知らない長い時間があるのだろう。
 MESSAGE,あなた,冬も近づく秋の空の下。
 MESSAGE,あなた,僕たちはしばらく、
 MESSAGE,あなた,川の流れる音を聞いていた。
-MESSAGE,あなた,そういえば、中秋の名月も近いだろうか。
+MESSAGE,あなた,そういえば、満月も近いだろうか。
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE

@@ -1,3 +1,6 @@
+INCREMENT_NUM_FLAG,信頼度,+25
+
+
 BACKGROUND_SHOW,BG/教室の前の方（日中）.jpg,6日目：朝の教室
 MESSAGE_OPEN
 MESSAGE,あなた,朝のホームルーム。
@@ -15,10 +18,11 @@ MESSAGE,先生,「残り少ない時間だが、仲良くしてやってくれ�
 MESSAGE,あなた,クラスメイトたちは、
 MESSAGE,あなた,名残惜しそうに彼女の方を見ていた。
 MESSAGE,あなた,僕も同じだった。
-CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
+CHARACTER_SHOW,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,あなた,香久夜ちゃんは、
 MESSAGE,あなた,いつも通りに微笑んでいた。
 MESSAGE,あなた,けれど、その表情の奥に、
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
 MESSAGE,あなた,少しだけ寂しさが見えた気がした。
 MESSAGE,あなた,授業が始まる。
 MESSAGE,あなた,窓の外では、紅葉が今を盛りと色づいていた。
@@ -26,6 +30,9 @@ CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
 $IF,NUMERIC_FLAG_MAX,信頼度,10
+BACKGROUND_SHOW,BG/教室の前の方（日中）.jpg,6日目：昼休み
+MESSAGE_OPEN,
+
 MESSAGE,あなた,昼休み。
 MESSAGE,あなた,いつものように香久夜ちゃんのところへ
 MESSAGE,あなた,行こうとした。
@@ -39,6 +46,7 @@ MESSAGE,あなた,放課後も、彼女と話す機会はなかった。
 MESSAGE,あなた,彼女が転校するまで、あと一日。
 MESSAGE,あなた,僕は何もできないまま、
 MESSAGE,あなた,その日を終えることになった。
+CHARACTER_HIDE,
 BACKGROUND_SHOW,BG/一人部屋３（夜・照明ON）.jpg,END_D：小さな失恋
 MESSAGE_OPEN
 MESSAGE,あなた,スマートフォンを見ても、
@@ -72,6 +80,7 @@ MESSAGE,香久夜,「君とこうやって昼食を食べるのも」
 MESSAGE,香久夜,「明日で最後なんだね」
 MESSAGE,あなた,「そうだね」
 MESSAGE,あなた,「あっという間の6日間だった気がする」
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remakeいたずら笑み.png,0.68
 MESSAGE,香久夜,「なーに。名残惜しそうなの？」
 MESSAGE,香久夜,「転校しちゃうの、気に留めてくれてるのかしら？」
 MESSAGE,あなた,「うん」
@@ -104,7 +113,7 @@ MESSAGE,あなた,とても大切なものに感じられた。
 CHARACTER_HIDE
 MESSAGE_CLOSE
 BACKGROUND_HIDE
-BACKGROUND_SHOW,BG/カラオケ.png,6日目：カラオケ
+BACKGROUND_SHOW,BG/街中の交差点（夕方）.jpg,6日目：カラオケ
 MESSAGE_OPEN
 MESSAGE,あなた,学校を出た僕たちは、
 MESSAGE,あなた,二人でカラオケへと向かった。
@@ -119,6 +128,7 @@ MESSAGE,あなた,「いや、なんとなく」
 MESSAGE,香久夜,「もう。失礼しちゃうわね」
 MESSAGE,あなた,彼女は軽く愚痴を飛ばしながら、
 MESSAGE,あなた,部屋へと案内してくれた。
+BACKGROUND_CHANGE,BG/カラオケ.png,6日目：カラオケ
 MESSAGE,あなた,部屋に入ってからは、
 MESSAGE,あなた,二人で曲を選んで歌った。
 MESSAGE,あなた,香久夜ちゃんの音楽の趣味は、
@@ -158,12 +168,13 @@ $IF,SELECTED_OPTION,0
 MESSAGE,あなた,「ねえ、香久夜ちゃん」
 MESSAGE,香久夜,「ん？　どうしたの？」
 MESSAGE,あなた,「明日、学校の屋上に来てくれないか？」
-CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake困り顔.png,0.68
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake照れ.png,0.68
 MESSAGE,香久夜,「……えっ？」
 MESSAGE,あなた,「少し、話したいことがあるんだ」
 MESSAGE,あなた,彼女は驚いたように僕を見つめた。
 MESSAGE,あなた,何かを考えるように少し黙ってから、
 MESSAGE,あなた,小さく頷いた。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「……良いよ」
 MESSAGE,香久夜,「君のことだから。信頼してるもん」
 MESSAGE,あなた,「ありがとう」
@@ -171,12 +182,15 @@ MESSAGE,あなた,その言葉を聞いて、
 MESSAGE,あなた,僕はようやく息を吐くことができた。
 MESSAGE,あなた,明日、伝えよう。
 MESSAGE,あなた,自分の気持ちを。
+$IF_END
 $IF,SELECTED_OPTION,1
 MESSAGE,あなた,「……終わっちゃったね」
 MESSAGE,香久夜,「うん。楽しかったね」
 MESSAGE,あなた,僕たちはカラオケ店を出た。
+BACKGROUND_CHANGE,BG/街中の交差点（夕方）.jpg,6日目：帰路
 MESSAGE,あなた,帰り道も、いつも通り手を繋いで歩いた。
 MESSAGE,あなた,けれど、僕は何も言えなかった。
+CHARACTER_CHANGE,Chara/香久夜ちゃ立ち絵remake笑顔.png,0.68
 MESSAGE,香久夜,「今日はありがとう」
 MESSAGE,香久夜,「一緒に来てくれて、嬉しかったよ」
 MESSAGE,あなた,「うん。僕も楽しかった」
@@ -185,8 +199,8 @@ MESSAGE,あなた,「……うん。また明日」
 MESSAGE,あなた,彼女は笑って、帰っていった。
 MESSAGE,あなた,僕はその背中を見送った。
 MESSAGE,あなた,これで、よかったのだろうか。
-CHARACTER_HIDE
 MESSAGE_CLOSE
+CHARACTER_HIDE
 BACKGROUND_HIDE
 BACKGROUND_SHOW,BG/一人部屋３（夜・照明ON）.jpg,END_C：もう戻らない日々
 MESSAGE_OPEN
@@ -200,14 +214,16 @@ MESSAGE,あなた,それでも、彼女と過ごした時間は、
 MESSAGE,あなた,僕にとって大切なものだった。
 MESSAGE,あなた,そう自分に言い聞かせながら、
 MESSAGE,あなた,僕は眠りについた。
-MESSAGE_CLOSE
 BACKGROUND_HIDE
 
 MESSAGE,,END_C：もう戻らない日々
+MESSAGE_CLOSE
 RETURN_TITLE,
 
 $IF_END
 $IF,SELECTED_OPTION,0
+MESSAGE_CLOSE,
+CHARACTER_HIDE,
 BACKGROUND_SHOW,BG/一人部屋３（夜・照明ON）.jpg,6日目：一人の時間
 MESSAGE_OPEN
 MESSAGE,あなた,家に帰って、ベッドに横になった。
@@ -230,4 +246,5 @@ MESSAGE,あなた,夜は静かに更けていった。
 MESSAGE,あなた,明日は、最後の日だ。
 MESSAGE_CLOSE
 BACKGROUND_HIDE
+$IF_END
 $IF_END

@@ -19,7 +19,8 @@ public:
     void QuickChangeBackground(const std::string &filePath, const std::string &scene_name = "");
     int LoadAndPoolTexture(const std::string &filePath);
     int IsExistingTexture(const std::string &filePath) const;
-    void Graphic(Font font);
+    void Graphic();
+    void GraphicFont(Font font);
     void UnloadAllBackgroundTextures();
 
 private:

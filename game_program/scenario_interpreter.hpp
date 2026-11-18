@@ -16,6 +16,7 @@
 #include "item_window.hpp"
 #include "save_data.hpp"
 #include "cutin_manage.hpp"
+#include <vector>
 
 class ScenarioInterpreter
 {
@@ -40,4 +41,5 @@ private:
     CoroutineManager &coroutineManager;
     ItemWindow &itemWindow;
     bool isSkipping = false;
+    std::vector<bool> ifSkipStack;
 };

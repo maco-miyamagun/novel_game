@@ -65,7 +65,56 @@ Task ScenarioInterpreter::ExecuteCommand(const std::string &command, const std::
 {
     if (command == "$IF_END")
     {
-        isSkipping = false;
+        if (!ifSkipStack.empty())
+        {
+            isSkipping = ifSkipStack.back();
+            ifSkipStack.pop_back();
+        }
+        else
+        {
+            isSkipping = false;
+        }
+        co_return;
+    }
+    else if (command == "$IF")
+    {
+        bool parentSkipping = isSkipping;
+        bool conditionMatched = false;
+
+        if (args.size() >= 2)
+        {
+            std::string condition = args[0];
+            std::string value = args[1];
+
+            if (condition == "SELECTED_OPTION")
+            {
+                int selectedOptionIndex = selectionWindow.GetSelectedOptionIndex();
+                int targetOptionIndex = std::stoi(value);
+                conditionMatched = (selectedOptionIndex == targetOptionIndex);
+            }
+            else if (condition == "FLAG" && args.size() >= 3)
+            {
+                std::string flagKey = value;
+                bool expectedValue = (args[2] == "true");
+                conditionMatched = (saveData.GetFlag(flagKey) == expectedValue);
+            }
+            else if (condition == "NUMERIC_FLAG_MIN" && args.size() >= 3)
+            {
+                std::string flagKey = value;
+                int expectedValue = std::stoi(args[2]);
+                conditionMatched = (saveData.GetNumericFlag(flagKey) >= expectedValue);
+            }
+            else if (condition == "NUMERIC_FLAG_MAX" && args.size() >= 3)
+            {
+                std::string flagKey = value;
+                int expectedValue = std::stoi(args[2]);
+                conditionMatched = (saveData.GetNumericFlag(flagKey) < expectedValue);
+            }
+        }
+
+        ifSkipStack.push_back(isSkipping);
+        isSkipping = parentSkipping || !conditionMatched;
+        co_return;
     }
     else if (isSkipping)
     {
@@ -110,7 +159,8 @@ Task ScenarioInterpreter::ExecuteCommand(const std::string &command, const std::
         if (!args.empty())
         {
             std::string filePath = args[0];
-            backgroundManager.QuickChangeBackground(filePath);
+            std::string sceneName = args[1];
+            backgroundManager.QuickChangeBackground(filePath, sceneName);
         }
     }
     else if (command == "BACKGROUND_HIDE")
@@ -230,49 +280,6 @@ Task ScenarioInterpreter::ExecuteCommand(const std::string &command, const std::
     else if (command == "CLEAR_ALL_NUMERIC_FLAGS")
     {
         saveData.ClearAllNumericFlags();
-    }
-    else if (command == "$IF")
-    {
-        if (args.size() >= 2)
-        {
-            std::string condition = args[0];
-            std::string value = args[1];
-
-            if (condition == "SELECTED_OPTION" && !args.empty())
-            {
-                int selectedOptionIndex = selectionWindow.GetSelectedOptionIndex();
-                int targetOptionIndex = std::stoi(value);
-
-                isSkipping = (selectedOptionIndex != targetOptionIndex);
-            }
-
-            if (condition == "FLAG" && args.size() >= 3)
-            {
-                std::string flagKey = value;
-                bool expectedValue = (args[2] == "true");
-
-                bool actualValue = saveData.GetFlag(flagKey);
-                isSkipping = (actualValue != expectedValue);
-            }
-
-            if (condition == "NUMERIC_FLAG_MIN" && args.size() >= 3)
-            {
-                std::string flagKey = value;
-                int expectedValue = std::stoi(args[2]);
-
-                int actualValue = saveData.GetNumericFlag(flagKey);
-                isSkipping = (actualValue < expectedValue);
-            }
-
-            if (condition == "NUMERIC_FLAG_MAX" && args.size() >= 3)
-            {
-                std::string flagKey = value;
-                int expectedValue = std::stoi(args[2]);
-
-                int actualValue = saveData.GetNumericFlag(flagKey);
-                isSkipping = (actualValue >= expectedValue);
-            }
-        }
     }
     else if (command == "WAIT")
     {

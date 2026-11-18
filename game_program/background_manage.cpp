@@ -95,7 +95,7 @@ int BackgroundManager::IsExistingTexture(const std::string &filePath) const
     return -1;
 }
 
-void BackgroundManager::Graphic(Font font)
+void BackgroundManager::Graphic()
 {
     // グラフィック表示処理
 
@@ -109,6 +109,14 @@ void BackgroundManager::Graphic(Font font)
         0, 0,
         1.40f, 0.0f,
         Fade(WHITE, backgroundAlpha));
+}
+
+void BackgroundManager::GraphicFont(Font font)
+{
+    // グラフィック表示処理
+
+    if (!is_visible || texture_pool.empty())
+        return;
 
     Graphic_BorderedText(
         font,
