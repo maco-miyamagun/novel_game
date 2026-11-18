@@ -1,0 +1,33 @@
+BACKGROUND_SHOW,BG/文化系の部室（夕方）.jpg,
+
+SELECTION,月が綺麗ですね,ゲームスタート,クレジット,ゲーム終了
+
+$IF,SELECTED_OPTION,1
+MESSAGE_OPEN,
+MESSAGE,,企画・プロット・ゲームシステム：maco
+MESSAGE,,シナリオ本文・推敲：ChatGPT
+MESSAGE,,キャラクターアートワーク：maco
+MESSAGE,,プログラム・UI：maco
+MESSAGE,,プログラム補助：github copilot
+MESSAGE,,---お借りした素材(敬称略)---
+MESSAGE,,背景：みんちりえ
+MESSAGE,,フォント：Google Font
+MESSAGE,,---お借りしたプログラム---
+MESSAGE,,c++（プログラム言語）
+MESSAGE,,raylib（ゲームライブラリ）
+MESSAGE,,openSSL（ファイル暗号化）
+MESSAGE,,stb_image（画像ファイル読み込み）
+MESSAGE,,---スペシャルサンクス---
+MESSAGE,,画面の前のあなた
+MESSAGE_CLOSE,
+RETURN_TITLE,
+$IF_END
+
+$IF,SELECTED_OPTION,2
+BACKGROUND_HIDE,
+QUIT,
+$IF_END
+
+$IF,SELECTED_OPTION,0
+BACKGROUND_HIDE,
+$IF_END
