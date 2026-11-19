@@ -1,5 +1,7 @@
+// 【game_screen】 ゲーム解像度のレンダーターゲット生成と画面描画を行う。
 #include "game_screen.hpp"
 
+// 指定解像度のレンダーターゲットを生成する。
 RenderTexture2D CreateGameRenderTexture(int width, int height)
 {
     RenderTexture2D renderTexture = LoadRenderTexture(width, height);
@@ -16,6 +18,7 @@ RenderTexture2D CreateGameRenderTexture(int width, int height)
     return renderTexture;
 }
 
+// レンダーターゲットの内容をウィンドウへ合成する。
 void RenderGameScreen(RenderTexture2D gameScreen)
 {
 

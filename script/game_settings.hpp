@@ -1,3 +1,4 @@
+// 【game_settings】 画面・ウィンドウ・選択肢レイアウトの定数を提供する。
 #pragma once
 #include <string>
 

@@ -1,3 +1,4 @@
+// 【background_manage】 背景テクスチャの読み込み、表示切替、描画状態を管理する。
 #include "background_manage.hpp"
 
 BackgroundManager::BackgroundManager()
@@ -11,6 +12,7 @@ BackgroundManager::BackgroundManager()
     current_scene_name = "";
 }
 
+// 表示状態に応じてフェードイン・フェードアウトを行う。引数showがtrueなら表示、falseなら非表示にする。
 Task BackgroundManager::ToggleShow(CoroutineManager &manager, bool show)
 {
     // 表示/非表示を切り替える処理
@@ -19,6 +21,7 @@ Task BackgroundManager::ToggleShow(CoroutineManager &manager, bool show)
     {
         is_visible = true;
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
         co_await manager.Start(Tween(
             manager,
             backgroundAlpha,
@@ -30,9 +33,11 @@ Task BackgroundManager::ToggleShow(CoroutineManager &manager, bool show)
                 backgroundAlpha = value;
             }));
 
+// コルーチン終了: 現在の処理分岐から正常に抜ける。
         co_return;
     }
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await manager.Start(Tween(
         manager,
         backgroundAlpha,
@@ -55,6 +60,7 @@ void BackgroundManager::QuickChangeBackground(const std::string &filePath, const
     current_scene_name = scene_name; // 現在のシーン名を更新
 }
 
+// テクスチャをプールへ登録し、既存なら既存インデックス、新規なら格納先インデックスを返す。
 int BackgroundManager::LoadAndPoolTexture(const std::string &filePath)
 {
     const int existingIndex = IsExistingTexture(filePath);
@@ -85,6 +91,7 @@ int BackgroundManager::LoadAndPoolTexture(const std::string &filePath)
 // インデックスを返すように変更
 int BackgroundManager::IsExistingTexture(const std::string &filePath) const
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (size_t index = 0; index < texture_paths.size(); ++index)
     {
         if (texture_paths[index] == filePath)
@@ -95,6 +102,7 @@ int BackgroundManager::IsExistingTexture(const std::string &filePath) const
     return -1;
 }
 
+// 現在の表示状態と透明度に応じて内容を描画する。
 void BackgroundManager::Graphic()
 {
     // グラフィック表示処理
@@ -111,6 +119,7 @@ void BackgroundManager::Graphic()
         Fade(WHITE, backgroundAlpha));
 }
 
+// 指定フォントを用いて現在の背景を描画する。
 void BackgroundManager::GraphicFont(Font font)
 {
     // グラフィック表示処理
@@ -130,6 +139,7 @@ void BackgroundManager::GraphicFont(Font font)
 
 void BackgroundManager::UnloadAllBackgroundTextures()
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (const Texture2D &texture : texture_pool)
     {
         UnloadTexture(texture);

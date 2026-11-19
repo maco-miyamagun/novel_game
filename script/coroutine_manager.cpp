@@ -1,3 +1,4 @@
+// 【coroutine_manager】 コルーチンハンドルの登録、待機状態、終了処理を更新する。
 #include "coroutine_manager.hpp"
 
 #include <raylib.h>
@@ -5,12 +6,14 @@
 
 CoroutineManager::~CoroutineManager()
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (auto handle : tasks_)
     {
         if (handle)
             handle.destroy();
     }
 
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (auto handle : pendingTasks_)
     {
         if (handle)
@@ -21,6 +24,7 @@ CoroutineManager::~CoroutineManager()
     pendingTasks_.clear();
 }
 
+// タスクを登録し、完了状態を識別するTaskCompletionを返す。
 TaskCompletion CoroutineManager::Start(Task &&task)
 {
     auto completion = task.GetCompletion();
@@ -37,6 +41,7 @@ TaskCompletion CoroutineManager::Start(Task &&task)
     return completion;
 }
 
+// 登録タスクの待機条件・残り時間・完了状態を更新する。
 void CoroutineManager::Update()
 {
     updating_ = true;
@@ -45,6 +50,7 @@ void CoroutineManager::Update()
 
     auto it = tasks_.begin();
 
+// ループ: 終了条件を満たすまで繰り返して状態を更新する。
     while (it != tasks_.end())
     {
         auto handle = *it;
@@ -108,6 +114,7 @@ void CoroutineManager::Update()
     updating_ = false;
 
     // 更新中に登録された Coroutine を追加
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (auto handle : pendingTasks_)
     {
         tasks_.push_back(handle);
@@ -116,6 +123,7 @@ void CoroutineManager::Update()
     pendingTasks_.clear();
 }
 
+// 現在管理中のタスク数を返す。
 size_t CoroutineManager::GetTaskCount() const
 {
     return tasks_.size() + pendingTasks_.size();

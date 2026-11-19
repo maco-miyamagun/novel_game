@@ -1,7 +1,9 @@
+// 【asset_manage】 暗号化された画像・音声・フォント・シナリオ資産の読み込みを行う。
 #include "asset_manage.hpp"
 
 const char *envPassword = "faihfoiahghasgaioghoahohgohirag";
 
+// 実行ファイル位置を基準にリソースディレクトリへカレントを変更する。
 void ChangeToResourcesDirectory(void)
 {
     char path[1024];
@@ -16,6 +18,7 @@ void ChangeToResourcesDirectory(void)
     }
 }
 
+// 暗号化画像を復号してTexture2Dを生成し、失敗時は無効値を返す。
 Texture2D LoadTextureFromFileEncrypted(const std::string &filename)
 {
     std::string extension =
@@ -131,6 +134,7 @@ Texture2D LoadTextureFromFileEncrypted(const std::string &filename)
 //     return texture;
 // }
 
+// 暗号化シナリオを復号した文字列バッファを返し、呼び出し側で解放する。
 char *LoadScenarioFromFileEncrypted(const std::string &filename)
 {
     unsigned char *fileData = nullptr;
@@ -161,6 +165,7 @@ char *LoadScenarioFromFileEncrypted(const std::string &filename)
     return text_data;
 }
 
+// 暗号化効果音を復号してraylibのSoundを生成する。
 Sound LoadSEFromFileEncrypted(const std::string &filename)
 {
     std::string extension =
@@ -205,6 +210,7 @@ Sound LoadSEFromFileEncrypted(const std::string &filename)
     return sound;
 }
 
+// 暗号化BGMを復号し、Music本体と解放用バッファをペアで返す。
 std::pair<Music, unsigned char *> LoadMusicFromFileEncrypted(const std::string &filename)
 {
     std::string extension =
@@ -242,6 +248,7 @@ std::pair<Music, unsigned char *> LoadMusicFromFileEncrypted(const std::string &
     return {music, fileData};
 }
 
+// 暗号化フォントを復号して指定コードポイントのFontを生成する。
 Font LoadFontFromFileEncrypted(const std::string &filename, int fontSize, const int *codepoints, int codepointCount)
 {
     std::string extension =
@@ -286,6 +293,7 @@ Font LoadFontFromFileEncrypted(const std::string &filename, int fontSize, const 
     return font;
 }
 
+// 復号時に確保したバイト列を解放する。nullptrなら何もしない。
 void UnloadEncryptedFileData(unsigned char *fileData)
 {
     AssetEncryptor::Free(fileData);

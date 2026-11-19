@@ -1,6 +1,8 @@
+// 【japanese_font】 日本語表示に必要なグリフ範囲を含むフォントを読み込む。
 #include "japanese_font.hpp"
 #include <vector>
 
+// 指定パスとサイズで日本語グリフを含むフォントを読み込む。
 Font GetJapaneseFont(
     const std::string &fontPath,
     int fontSize)
@@ -8,18 +10,21 @@ Font GetJapaneseFont(
     std::vector<int> glyphs;
 
     // ASCII
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (int i = 32; i <= 126; i++)
     {
         glyphs.push_back(i);
     }
 
     // 日本語の記号・ひらがな・カタカナ
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (int i = 0x3000; i <= 0x30FF; i++)
     {
         glyphs.push_back(i);
     }
 
     // 全角英数字・記号
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (int i = 0xFF00; i <= 0xFFEF; i++)
     {
         glyphs.push_back(i);
@@ -32,6 +37,7 @@ Font GetJapaneseFont(
         commonKanji.c_str(),
         &codepointCount);
 
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (int i = 0; i < codepointCount; i++)
     {
         glyphs.push_back(codepoints[i]);
@@ -39,6 +45,7 @@ Font GetJapaneseFont(
 
     UnloadCodepoints(codepoints);
 
+// 暗号化フォントを復号して指定コードポイントのFontを生成する。
     Font font = LoadFontFromFileEncrypted(
         fontPath,
         fontSize,

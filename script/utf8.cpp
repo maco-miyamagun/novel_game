@@ -1,9 +1,12 @@
+// 【utf8】 UTF-8文字列の文字数と部分文字列を扱う。
 #include "utf8.hpp"
 
+// UTF-8バイト列を文字単位で数え、先頭からの文字数を返す。
 int UTF8Length(const std::string &str)
 {
     int count = 0;
 
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (unsigned char c : str)
     {
         if ((c & 0xC0) != 0x80)
@@ -13,6 +16,7 @@ int UTF8Length(const std::string &str)
     return count;
 }
 
+// UTF-8境界を維持したまま、指定位置から指定文字数を切り出す。
 std::string GetUTF8Substring(
     const std::string &str,
     int start,
@@ -22,6 +26,7 @@ std::string GetUTF8Substring(
     size_t byteStart = 0;
     size_t byteEnd = str.size();
 
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (size_t i = 0; i < str.size();)
     {
         if (currentChar == start)

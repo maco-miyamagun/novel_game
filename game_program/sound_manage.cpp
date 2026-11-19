@@ -1,3 +1,4 @@
+// 【sound_manage】 効果音とBGMの再生、フェード、リソース解放を管理する。
 #include "sound_manage.hpp"
 
 SoundManager::SoundManager()
@@ -16,6 +17,7 @@ SoundManager::~SoundManager()
     }
 }
 
+// 指定パスの効果音を読み込み、再生する。
 void SoundManager::PlaySoundEffect(const std::string &filePath)
 {
     if (soundEffect.frameCount > 0)
@@ -26,8 +28,10 @@ void SoundManager::PlaySoundEffect(const std::string &filePath)
     PlaySound(soundEffect);
 }
 
+// 現在のBGMを停止してから指定ファイルをフェード再生する。
 Task SoundManager::PlayBackgroundMusic(CoroutineManager &manager, const std::string &filePath)
 {
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await manager.Start(StopBackgroundMusic(manager));
 
     if (backgroundMusicFileData)
@@ -43,10 +47,12 @@ Task SoundManager::PlayBackgroundMusic(CoroutineManager &manager, const std::str
     isBackgroundMusicPlaying = true;
 }
 
+// 再生中のBGMをフェードアウトして停止し、関連リソースを解放する。
 Task SoundManager::StopBackgroundMusic(CoroutineManager &manager)
 {
     if (isBackgroundMusicPlaying)
     {
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
         co_await manager.Start(Tween(
             manager,
             1.0,
@@ -64,6 +70,7 @@ Task SoundManager::StopBackgroundMusic(CoroutineManager &manager)
     }
 }
 
+// 経過時間とマウス操作から選択状態を更新する。引数deltaTimeは前フレームからの秒数。
 void SoundManager::Logic()
 {
     if (isBackgroundMusicPlaying)

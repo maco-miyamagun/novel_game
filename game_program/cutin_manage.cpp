@@ -1,3 +1,4 @@
+// 【cutin_manage】 カットイン画像の表示、フェード、テクスチャ解放を管理する。
 #include "cutin_manage.hpp"
 
 CutinManage::CutinManage()
@@ -9,6 +10,7 @@ CutinManage::CutinManage()
     alpha = 0.0f;
 }
 
+// 指定画像を読み込み、フェードインして表示する。
 Task CutinManage::Open(CoroutineManager &manager, const std::string &filePath)
 {
     const int index = LoadAndPoolTexture(filePath);
@@ -16,6 +18,7 @@ Task CutinManage::Open(CoroutineManager &manager, const std::string &filePath)
     alpha = 0.0f;
     is_visible = true;
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await manager.Start(Tween(
         manager,
         alpha,
@@ -28,13 +31,16 @@ Task CutinManage::Open(CoroutineManager &manager, const std::string &filePath)
         }));
 }
 
+// 表示中ならフェードアウトして非表示へ遷移する。
 Task CutinManage::Hide(CoroutineManager &manager)
 {
     if (!is_visible)
     {
+// コルーチン終了: 現在の処理分岐から正常に抜ける。
         co_return;
     }
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await manager.Start(Tween(
         manager,
         alpha,
@@ -49,6 +55,7 @@ Task CutinManage::Hide(CoroutineManager &manager)
     is_visible = false;
 }
 
+// テクスチャをプールへ登録し、既存なら既存インデックス、新規なら格納先インデックスを返す。
 int CutinManage::LoadAndPoolTexture(const std::string &filePath)
 {
     const int existingIndex = IsExistingTexture(filePath);
@@ -80,6 +87,7 @@ int CutinManage::LoadAndPoolTexture(const std::string &filePath)
 // インデックスを返すように変更
 int CutinManage::IsExistingTexture(const std::string &filePath) const
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (size_t index = 0; index < texture_paths.size(); ++index)
     {
         if (texture_paths[index] == filePath)
@@ -90,6 +98,7 @@ int CutinManage::IsExistingTexture(const std::string &filePath) const
     return -1;
 }
 
+// 現在の表示状態と透明度に応じて内容を描画する。
 void CutinManage::Graphic()
 {
     if (!is_visible || texture_pool.empty())
@@ -106,6 +115,7 @@ void CutinManage::Graphic()
 
 void CutinManage::UnloadAllCutinTextures()
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (const auto &texture : texture_pool)
     {
         UnloadTexture(texture);

@@ -1,6 +1,8 @@
+// 【mouse】 ウィンドウ座標のマウス位置をゲーム座標へ変換する。
 #include "mouse.hpp"
 #include "game_settings.hpp"
 
+// ウィンドウ座標のマウス位置をゲーム座標へ変換して返す。
 Vector2 GetVirtualMousePosition()
 {
     float scale = std::min(

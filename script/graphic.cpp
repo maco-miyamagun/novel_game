@@ -1,5 +1,7 @@
+// 【graphic】 画像、図形、テキストをゲーム画面へ描画する補助関数を提供する。
 #include "graphic.hpp"
 
+// テクスチャを指定位置・拡大率・回転・色で描画する。
 void Graphic_Image(
     Texture2D texture,
     float x,
@@ -25,6 +27,7 @@ void Graphic_Image(
         tint);
 }
 
+// 指定矩形を塗りつぶしで描画する。
 void Graphic_Rectangle(
     float x,
     float y,
@@ -45,6 +48,7 @@ void Graphic_Rectangle(
         color);
 }
 
+// 指定矩形の輪郭を指定線幅で描画する。
 void Graphic_RectangleLines(
     float x,
     float y,
@@ -68,6 +72,7 @@ void Graphic_RectangleLines(
         color);
 }
 
+// 指定フォントと座標で文字列を描画し、必要に応じて中央揃えする。
 void Graphic_Text(
     Font font,
     const std::string &text,
@@ -101,6 +106,7 @@ void Graphic_Text(
         color);
 }
 
+// 指定文字列を縁取り付きで描画し、必要に応じて中央揃えする。
 void Graphic_BorderedText(
     Font font,
     const std::string &text,

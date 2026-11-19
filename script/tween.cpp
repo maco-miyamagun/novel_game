@@ -1,3 +1,4 @@
+// 【tween】 指定時間で数値を補間し、各フレームでコールバックを呼ぶ。
 #include "tween.hpp"
 
 #include <algorithm>
@@ -35,6 +36,7 @@ namespace
     }
 }
 
+// 開始値から終了値へ補間し、各更新でcallbackへ現在値を渡す。
 Task Tween(
     CoroutineManager &manager,
     float from,
@@ -48,6 +50,7 @@ Task Tween(
         if (callback)
             callback(to);
 
+// コルーチン終了: 現在の処理分岐から正常に抜ける。
         co_return;
     }
 
@@ -56,6 +59,7 @@ Task Tween(
     if (callback)
         callback(from);
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await WaitUntil([&]()
                        {
         elapsed += GetFrameTime();

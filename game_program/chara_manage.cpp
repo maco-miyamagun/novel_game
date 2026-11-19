@@ -1,3 +1,4 @@
+// 【chara_manage】 立ち絵テクスチャの読み込み、表示切替、描画状態を管理する。
 #include "chara_manage.hpp"
 
 CharacterManager::CharacterManager()
@@ -12,6 +13,7 @@ CharacterManager::CharacterManager()
     LoadAllCharaTexture();
 }
 
+// 表示状態に応じてフェードイン・フェードアウトを行う。引数showがtrueなら表示、falseなら非表示にする。
 Task CharacterManager::ToggleShow(CoroutineManager &manager, bool show)
 {
     // 表示/非表示を切り替える処理
@@ -20,6 +22,7 @@ Task CharacterManager::ToggleShow(CoroutineManager &manager, bool show)
     {
         is_visible = true;
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
         co_await manager.Start(Tween(
             manager,
             characterAlpha,
@@ -31,9 +34,11 @@ Task CharacterManager::ToggleShow(CoroutineManager &manager, bool show)
                 characterAlpha = value;
             }));
 
+// コルーチン終了: 現在の処理分岐から正常に抜ける。
         co_return;
     }
 
+// コルーチン待機: 処理完了または条件成立まで再開を保留する。
     co_await manager.Start(Tween(
         manager,
         characterAlpha,
@@ -56,6 +61,7 @@ void CharacterManager::QuickChangeCharacter(const std::string &filePath, float s
     characterScale = scale;
 }
 
+// テクスチャをプールへ登録し、既存なら既存インデックス、新規なら格納先インデックスを返す。
 int CharacterManager::LoadAndPoolTexture(const std::string &filePath)
 {
     const int existingIndex = IsExistingTexture(filePath);
@@ -88,6 +94,7 @@ int CharacterManager::IsExistingTexture(const std::string &filePath) const
 {
     int index = 0;
 
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (const auto &path : texture_paths)
     {
         if (path == filePath)
@@ -99,6 +106,7 @@ int CharacterManager::IsExistingTexture(const std::string &filePath) const
     return -1; // 同じテクスチャが見つからなかった場合は-1を返す
 }
 
+// 現在の表示状態と透明度に応じて内容を描画する。
 void CharacterManager::Graphic()
 {
     // グラフィック表示処理
@@ -117,6 +125,7 @@ void CharacterManager::Graphic()
 
 void CharacterManager::UnloadAllCharacterTextures()
 {
+// ループ: 対象を順番に処理し、各要素の状態を確認する。
     for (const auto &texture : texture_pool)
     {
         UnloadTexture(texture);
